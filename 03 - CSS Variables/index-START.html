@@ -13,27 +13,46 @@
     <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
 
     <label for="blur">Blur:</label>
-    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+    <input id="blur" type="range" name="blur" min="0" max="25" value="0" data-sizing="px">
 
     <label for="base">Base Color</label>
     <input id="base" type="color" name="base" value="#ffc600">
   </div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+  <img src="forest.jpg">
 
   <style>
 
-    /*
-      misc styles, nothing to do with CSS variables
-    */
+    /* CSS Variables */
+    :root {
+      --base: #ffc600;
+      --blur: 10px;
+      --spacing: 10px;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+      border-radius: 10%;
+      background-repeat: no-repeat;
+      width: 50%;
+      height: 40%;
+
+    }
+
+    .hl{
+      color: var(--base);
+    }
 
     body {
       text-align: center;
       background: #193549;
-      color: white;
+      color: whitesmoke;
       font-family: 'helvetica neue', sans-serif;
       font-weight: 100;
       font-size: 50px;
+
     }
 
     .controls {
@@ -46,6 +65,23 @@
   </style>
 
   <script>
+    //selecting all the input fields
+    const inputs = document.querySelectorAll('.controls input');
+
+    function handleUpdate(){
+
+      //we need to know the suffix of the value that 'px'
+      //for spacing and blur we have suffix as px but for color we have no suffix. Thats y we have added || ''
+      //dataset means for that element if you have set any attribute with data-.... It will take all the attribute and values associated to it and put it in a object.
+      const suffix = this.dataset.sizing || ''; //suffix is px for spacing and blur and '' for base
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+      //this.name can be blur, spacing or base and this.value is range 
+      //console.log(this.name + " " + this.value + suffix);
+    }
+    //inputs is NodeList, not array. NodeList has few properties than array like forEach, entries, and values.
+    inputs.forEach(input => input.addEventListener('change', handleUpdate)); //change is only then you click on the range
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate)); //mousemove is when you move mouse on the range.
+
   </script>
 
 </body>

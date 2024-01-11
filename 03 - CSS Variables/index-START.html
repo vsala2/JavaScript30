@@ -6,7 +6,7 @@
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
-  <h2>Update CSS Variables with <span class='hl'>JS</span></h2>
+  <h2><span class='hl'>Update CSS Variables with JS</span></h2>
 
   <div class="controls">
     <label for="spacing">Spacing:</label>
@@ -23,9 +23,22 @@
 
   <style>
 
-    /*
-      misc styles, nothing to do with CSS variables
-    */
+    /* CSS Variables */
+    :root {
+      --base: #ffc600;
+      --blur: 10px;
+      --spacing: 10px;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: var(--blur);
+    }
+
+    .h1{
+      color: var(--base);
+    }
 
     body {
       text-align: center;
@@ -46,6 +59,20 @@
   </style>
 
   <script>
+    //selecting all the input fields
+    const inputs = document.querySelector('.controls input');
+
+    function handleUpdate(){
+
+      //we need to know the suffix of the value that 'px'
+      //for spacing and blur we have suffix as px but for color we have no suffix. Thats y we have added || ''
+      //dataset means for that element if you have set any attribute with data-.... It will take all the attribute and values associated to it and put it in a object.
+      const suffix = this.dataset.sizing || '';
+    }
+    //inputs is NodeList, not array. NodeList has few properties than array like forEach, entries, and values.
+    inputs.forEach(input => input.addEventListener('change', handleUpdate)); //change is only then you click on the range
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate)); //mousemove is when you move mouse on the range.
+
   </script>
 
 </body>

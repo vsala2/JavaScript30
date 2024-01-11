@@ -69,7 +69,7 @@
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); 
     //eg inside audio <audio data-key="76" src="sounds/tink.wav"></audio>
 
-    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
     //key will store <div data-key="65" class="key">...</div>
 
     //checks if audio is null. if so stops the function from running all together
@@ -84,15 +84,15 @@
 
 function removeTransition(e){
   if(e.propertyName !== 'transform') return; //skip it if its not a transform
-  this.classList.remove('playing');   //this is <div data-key="65" class="key">...</div>
+  e.target.classList.remove('playing');   //this is <div data-key="65" class="key">...</div>
 }
 
 //will give every single element on the page
-const keys = document.querySelectorAll('.key');
+const keys = Array.from(document.querySelectorAll('.key'));
 //we are using forEach because we have an array of elements
 keys.forEach(key => key.addEventListener('transitioned', removeTransition));
 
-window.addEventListener("keydown",playSound);
+window.addEventListener('keydown',playSound);
 </script>
 
 

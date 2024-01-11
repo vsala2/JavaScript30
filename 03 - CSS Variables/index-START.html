@@ -38,7 +38,6 @@
       background-repeat: no-repeat;
       width: 50%;
       height: 40%;
-
     }
 
     .hl{
@@ -73,7 +72,7 @@
       //we need to know the suffix of the value that 'px'
       //for spacing and blur we have suffix as px but for color we have no suffix. Thats y we have added || ''
       //dataset means for that element if you have set any attribute with data-.... It will take all the attribute and values associated to it and put it in a object.
-      const suffix = this.dataset.sizing || ''; //suffix is px for spacing and blur and '' for base
+      const suffix = this.dataset.sizing || ''; //suffix is px for spacing and blur and '' for base.
       document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
       //this.name can be blur, spacing or base and this.value is range 
       //console.log(this.name + " " + this.value + suffix);

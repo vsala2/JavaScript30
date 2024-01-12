@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <title>Scoped CSS Variables and JS</title>
   <link rel="icon" href="https://fav.farm/🔥" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2><span class='hl'>Update CSS Variables with JS</span></h2>
+  <h3><span class='hl'>Update CSS Variables with JS</span></h3>
 
   <div class="controls">
     <label for="spacing">Spacing:</label>
@@ -20,48 +21,6 @@
   </div>
 
   <img src="forest.jpg">
-
-  <style>
-
-    /* CSS Variables */
-    :root {
-      --base: #ffc600;
-      --blur: 10px;
-      --spacing: 10px;
-    }
-
-    img {
-      padding: var(--spacing);
-      background: var(--base);
-      filter: blur(var(--blur));
-      border-radius: 10%;
-      background-repeat: no-repeat;
-      width: 50%;
-      height: 40%;
-    }
-
-    .hl{
-      color: var(--base);
-    }
-
-    body {
-      text-align: center;
-      background: #193549;
-      color: whitesmoke;
-      font-family: 'helvetica neue', sans-serif;
-      font-weight: 100;
-      font-size: 50px;
-
-    }
-
-    .controls {
-      margin-bottom: 50px;
-    }
-
-    input {
-      width: 100px;
-    }
-  </style>
 
   <script>
     //selecting all the input fields

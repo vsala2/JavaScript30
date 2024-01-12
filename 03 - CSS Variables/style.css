@@ -1,0 +1,39 @@
+    /* CSS Variables */
+    :root {
+        --base: #ffc600;
+        --blur: 10px;
+        --spacing: 10px;
+      }
+  
+      img {
+        padding: var(--spacing);
+        background: var(--base);
+        filter: blur(var(--blur));
+        border-radius: 10%;
+        background-repeat: no-repeat;
+        width: 50%;
+        height: 40%;
+      }
+  
+      .hl{
+        font-size: 50px;
+        color: var(--base);
+      }
+  
+      body {
+        text-align: center;
+        background: #193549;
+        color: whitesmoke;
+        font-family: 'helvetica neue', sans-serif;
+        font-weight: 100;
+        font-size: 40px;
+  
+      }
+  
+      .controls {
+        margin-bottom: 50px;
+      }
+  
+      input {
+        width: 100px;
+      }

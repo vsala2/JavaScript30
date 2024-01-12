@@ -60,7 +60,12 @@
 
 <script>
 
-  //keycode.info
+  function removeTransition(e){
+    if(e.propertyName !== 'transform') return; //skip it if its not a transform
+    e.target.classList.remove('playing');   //this is <div data-key="65" class="key">...</div>
+  }
+
+  // keycode.info
   //e-> event i.e, object full of data discribing what happened. 
   function playSound(e){
 
@@ -75,24 +80,19 @@
     //checks if audio is null. if so stops the function from running all together
     if(!audio) return;
 
+    //will add class playing to the key variable
+    key.classList.add('playing');
     audio.currentTime = 0; //rewind to the start
     audio.play();
 
-    //will add class playing to the key variable
-    key.classList.add('playing');
-  };
+  }
 
-function removeTransition(e){
-  if(e.propertyName !== 'transform') return; //skip it if its not a transform
-  e.target.classList.remove('playing');   //this is <div data-key="65" class="key">...</div>
-}
+  //will give every single element on the page
+  const keys = Array.from(document.querySelectorAll('.key'));
+  //we are using forEach because we have an array of elements
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
 
-//will give every single element on the page
-const keys = Array.from(document.querySelectorAll('.key'));
-//we are using forEach because we have an array of elements
-keys.forEach(key => key.addEventListener('transitioned', removeTransition));
-
-window.addEventListener('keydown',playSound);
 </script>
 
 

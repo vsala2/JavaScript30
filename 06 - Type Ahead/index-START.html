@@ -18,6 +18,57 @@
 <script>
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
+// step1 we need to fetch data from this array 
+// step2 when someone types into the serach box it will filter array down to a subset of all of the ones that matches the name or the state name
+
+const cities = [];
+
+//we will use the new API called fetch
+
+//fetch will return a promise, not the data. Promise is like something will eventually come back from fetch. How we can work with the promise is we can put .then() against it. It will return a blob of data. 
+//but the data that comes back from our fetch it doesnt know what format the data is. We explicitly know that its JSON. even if we do JSON.parse(blob) but this will not work bcoz blob should be converted from raw data to JSON.
+//blob has a method json blob.json() now even this will return another promise .then() against it. Now this will give you a raw data i.e, an array.
+//Now to push these items into cities array. cities.push(data) this will give array of array i.e, nested array.  cities.push(...data) will work 
+fetch(endpoint)
+  .then(blob => blob.json())
+  .then(data => cities.push(...data));
+
+
+//filter function
+//wordToMatch is the word searched
+//every city has a place
+//'gi' is a flag where g is global and i is insensitive
+function findMatches(wordToMatch, cities){
+  return cities.filter(place => {
+    //here we need to figure out if the city or state matches what was searched
+    const regex = new RegExp(wordToMatch, 'gi');
+    return place.city.match(regex) || place.state.match(regex)
+  });
+}
+
+function displayMatches() {
+  //console.log(this.value); wordToMatch
+  const matchArray = findMatches(this.value, cities);
+  
+  const html = matchArray.map(place => {
+    return `
+      <li>
+        <span class="name">${place.city}, ${place.state}</span>
+        <span class="population">${place.population}</span> 
+      </li>
+    `;
+  }).join('');
+  //map will return an array, we want string.
+  //join() will convert array os elements to one long string
+  suggestion.innerHTML = html;
+
+}
+const searchInput = document.querySelector('.search');
+const suggestion = doucment.querySelector('.suggestions');
+
+searchInput.addEventListener('change', displayMatches); //change only works if we go off the event
+searchInput.addEventListener('keyup', displayMatches);
+
 </script>
 </body>
 </html>

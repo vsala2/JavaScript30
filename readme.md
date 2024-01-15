@@ -18,21 +18,21 @@ JavaScript30 is a collection of 30 coding challenges designed to improve your un
 
 ### Day 2: CSS + JS Clock
 
-- **Project:** [CSS + JS Clock](./02.%20CSS+JS%20Clock%20/)
+- **Project:** [CSS + JS Clock](./02%20-%20JS%20and%20CSS%20Clock)
 - **Description:** Create a drum kit that plays sounds when keys are pressed.
-- **Demo:** [Live Demo](https://dk-bhullar.github.io/JavaScript30/02.%20CSS+JS%20Clock%20/)
+- **Demo:** [Live Demo](https://vsala2.github.io/JavaScript30/02%20-%20JS%20and%20CSS%20Clock/index-START.html)
 
 ### Day 3: Playing with CSS and JS
 
-- **Project:** [Playing with CSS and JS](./03.%20Playing%20with%20CSS%20and%20JS/)
+- **Project:** [Playing with CSS and JS](./03%20-%20CSS%20Variables)
 - **Description:** Create a drum kit that plays sounds when keys are pressed.
-- **Demo:** [Live Demo](https://dk-bhullar.github.io/JavaScript30/03.%20Playing%20with%20CSS%20and%20JS/)
+- **Demo:** [Live Demo](https://vsala2.github.io/JavaScript30/03%20-%20CSS%20Variables/index-START.html)
 
 ### Day 4: Cardio with Array
 
-- **Project:** [Cardio with Array](./04.%20Cardio%20with%20Array/)
+- **Project:** [Cardio with Array](./04%20-%20Array%20Cardio%20Day%201)
 - **Description:** Create a drum kit that plays sounds when keys are pressed.
-- **Demo:** [Live Demo](https://dk-bhullar.github.io/JavaScript30/04.%20Cardio%20with%20Array/)
+- **Demo:** [Live Demo]()
 
 ## Acknowledgments
 
@@ -42,7 +42,7 @@ JavaScript30 is a collection of 30 coding challenges designed to improve your un
 
 Feel free to reach out if you have any questions or just want to connect!
 
-- [LinkedIn](https://www.linkedin.com/in/dk-bhullar/)
-- [Portfolio](https://dk-bhullar.github.io/JavaScript30/)
+- [LinkedIn](https://www.linkedin.com/in/vaishnavi-salaskar/)
+- [Portfolio](https://vsala2.github.io/JavaScript30/)
 
 Happy coding! 🚀

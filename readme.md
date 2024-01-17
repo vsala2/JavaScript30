@@ -45,6 +45,12 @@ JavaScript30 is a collection of 30 coding challenges designed to improve your un
 - **Description:** Created a search panel for cities and states.
 - **Demo:** [Live Demo](https://vsala2.github.io/JavaScript30/06%20-%20Type%20Ahead/index-START.html)
 
+### Day 6: Type Ahead
+
+- **Project:** [Type Ahead](./06%20-%20Type%20Ahead)
+- **Description:** Created a search panel for cities and states.
+- **Demo:** [Live Demo](https://vsala2.github.io/JavaScript30/06%20-%20Type%20Ahead/index-START.html)
+
 ## Acknowledgments
 
 - [Wes Bos](https://wesbos.com/) for creating the JavaScript30 course.

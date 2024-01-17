@@ -61,7 +61,7 @@ JavaScript30 is a collection of 30 coding challenges designed to improve your un
 - **Project:** [Dev Tools Domination](./09%20-%20Dev%20Tools%20Domination)
 - **Description:** Learnt about some fun dev tools tricks.
 - **Demo:** [Live Demo](https://vsala2.github.io/JavaScript30/09%20-%20Dev%20Tools%20Domination/index-START.html)
-- 
+  
 ## Acknowledgments
 
 - [Wes Bos](https://wesbos.com/) for creating the JavaScript30 course.

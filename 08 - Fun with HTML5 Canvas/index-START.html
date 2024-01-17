@@ -6,8 +6,81 @@
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
+
 <canvas id="draw" width="800" height="800"></canvas>
+
 <script>
+  //canvas is basically a block of pixels. However you cannot draw on canvas element in HTML.
+  //We draw on something called as context. The context can be 2D or 3D. We are using 2D here 
+  //3D is basically for gaming 
+
+  //The Canvas API provides a means for drawing graphics via JavaScript and the HTML <canvas> element.
+  //The Document.getElementById() method gets a reference to the HTML <canvas> element. Next, the HTMLCanvasElement.getContext() method gets that element's context—the thing onto which the drawing will be rendered.    
+    
+  const canvas = document.querySelector('#draw');
+  const ctx = canvas.getContext('2d');
+
+  //adjusting the size of canvas
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  ctx.strokeStyle = '#BADA55';
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+  ctx.lineWidth = 100;
+  //blind mood, after overlap it turns black
+  //ctx.globalCompositeOperation = 'multiply';
+
+  //this is like a flag where only when keydown it will draw
+  let isDrawing = false;
+  //these two are drawing a line. we need start and end coordinates.
+  let lastX = 0;
+  let lastY = 0;
+  let hue = 0;
+  let direction = true;
+
+  function draw(e){
+    if(!isDrawing) return; //stop the function from running when they are not moused down
+    console.log(e);
+    //color of lines - website mother effing hsl , 100% is saturation and 50% is brightness
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+    ctx.beginPath();
+    //start from
+    ctx.moveTo(lastX, lastY);
+    //go to
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.stroke();
+
+    //if we dont write this lastX(that is the line start) will always start from top corner
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+
+    //color
+    hue++;
+    if(hue >= 360) { 
+      hue = 0;
+    }
+
+    //line width
+    if(ctx.lineWidth >= 100 || ctx.lineWidth <=1){
+      direction = !direction;
+    }
+
+    if(direction){
+      ctx.lineWidth++;
+    } else {
+      ctx.lineWidth--;
+    } 
+  }
+
+  canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+    //if we dont write this if the line break and you start again from another point it will join both ends.
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+  });
+
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('mouseup', () => isDrawing = false);
+  canvas.addEventListener('mouseout', () => isDrawing = false);
 </script>
 
 <style>

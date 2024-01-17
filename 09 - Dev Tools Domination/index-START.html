@@ -18,29 +18,76 @@
       p.style.fontSize = '50px';
     }
 
+    //Dev Tools Trick
     // Regular
+    console.log('msgs');
 
-    // Interpolated
+    // Interpolated %s
+    const item = 3;
+    console.log('Hello I am a %s string!', 'poop');
+    console.log(`I am a ${item} String!`);
 
-    // Styled
+    // Styled %c
+    console.log("I am %c fancy!", 'font-size: 50px; background: red');
+
 
     // warning!
+    console.warn('Ohhh Nooooooooooooooooo');
 
     // Error :|
+    console.error('Shit!');
 
     // Info
+    console.info('Decembers are best!');
 
     // Testing
+    //2nd argu only runs when first is false
+    console.assert(1==1, "This is true");
+
+    const value = document.querySelector('p');
+    console.assert(value.classList.contains('ouch'), 'This is wrong')
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    console.log(value);
+    console.dir(value); //will show all the properties of element
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old.`);
+      console.log(`${dog.name} is ${dog.age*7} dogs years old!`);
+      console.groupEnd(`${dog.name}`);
+    });
 
     // counting
+    console.count('WES');
+    console.count('Steve');
+    console.count('WES');
+    console.count('Steve');
+    console.count('WES');
+    console.count('WES');
+    console.count('WES');
+    console.count('WES');
+    console.count('Steve');
+    console.count('WES');
 
-    // timing
+
+    // timing: how long something takes OR performance.now
+    console.time('fetching data'); //start timer
+    //fetching data from github
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      }); 
+
+    //table
+    console.table(dogs);
 
   </script>
 </body>

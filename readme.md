@@ -61,6 +61,12 @@ JavaScript30 is a collection of 30 coding challenges designed to improve your un
 - **Project:** [Dev Tools Domination](./09%20-%20Dev%20Tools%20Domination)
 - **Description:** Learnt about some fun dev tools tricks.
 - **Demo:** [Live Demo](https://vsala2.github.io/JavaScript30/09%20-%20Dev%20Tools%20Domination/index-START.html)
+
+### Day 10: Hold Shift to Check Multiple Checkboxes
+
+- **Project:** [Hold Shift to Check Multiple Checkboxes](./10%20-%20Hold%20Shift%20and%20Check%20Checkboxes)
+- **Description:** created a small list where multiple checkboxes are check holding a shift key.
+- **Demo:** [Live Demo](https://vsala2.github.io/JavaScript30/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index-START.html)
   
 ## Acknowledgments
 

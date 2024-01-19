@@ -71,7 +71,7 @@ JavaScript30 is a collection of 30 coding challenges designed to improve your un
 ### Day 11: Custom Video Player
 
 - **Project:** [Custom Video Player](./11%20-%20Custom%20Video%20Player)
-- **Description:** Created a custom video player with all the video pleaer features.
+- **Description:** Created a custom video player with all the video player features.
 - **Demo:** [Live Demo](https://vsala2.github.io/JavaScript30/11%20-%20Custom%20Video%20Player/index.html)
   
 ## Acknowledgments

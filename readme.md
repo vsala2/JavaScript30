@@ -67,6 +67,12 @@ JavaScript30 is a collection of 30 coding challenges designed to improve your un
 - **Project:** [Hold Shift to Check Multiple Checkboxes](./10%20-%20Hold%20Shift%20and%20Check%20Checkboxes)
 - **Description:** created a small list where multiple checkboxes are check holding a shift key.
 - **Demo:** [Live Demo](https://vsala2.github.io/JavaScript30/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index-START.html)
+
+### Day 11: Custom Video Player
+
+- **Project:** [Custom Video Player](./11%20-%20Custom%20Video%20Player)
+- **Description:** Created a custom video player with all the video player features.
+- **Demo:** [Live Demo](https://vsala2.github.io/JavaScript30/11%20-%20Custom%20Video%20Player/index.html)
   
 ## Acknowledgments
 

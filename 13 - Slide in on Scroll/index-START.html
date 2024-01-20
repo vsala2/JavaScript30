@@ -59,6 +59,31 @@
       };
     }
 
+    const sliderImages = document.querySelectorAll('.slide-in');
+
+    function checkSlide(e) {
+       
+      sliderImages.forEach(sliderImage => {
+        //half way through the image
+        //window.scrollY is basically how far you have scrolled from the top of the screen
+        const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
+        //bottom of the image
+        //offsetTop is the top of the image is how far from the top of the actual window here
+        const imageBottom = sliderImage.offsetTop + sliderImage.height;
+
+        const isHalfShown = slideInAt > sliderImage.offsetTop;
+        const isNotScrolledPast = window.scrollY < imageBottom;
+
+        if(isHalfShown && isNotScrolledPast){
+          sliderImage.classList.add('active');
+        } else {
+          sliderImage.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', debounce(checkSlide));
+
   </script>
 
   <style>
@@ -71,7 +96,7 @@
     }
 
     body {
-      margin: 0;
+      margin: 0; 
     }
 
     *, *:before, *:after {

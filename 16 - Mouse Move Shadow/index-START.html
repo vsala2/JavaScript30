@@ -36,6 +36,37 @@
   </style>
 
 <script>
+  const hero = document.querySelector('.hero');
+  const text = hero.querySelector('h1');
+  const walk = 300; //300px how far we want the shadow to go
+
+  function shadow(e) {
+    //height of the shadow
+    //const width = hero.offsetWidth;
+    const { offsetWidth: width, offsetHeight: height } = hero;
+    //to know where our cursor is
+    let { offsetX: x, offsetY:y } = e;
+
+    //required when it has a child element inside
+    //this is div class hero, e.target can be div class hero or h1
+    if(this !== e.target) {
+      x = x + e.target.offsetLeft;
+      y = y + e.target.offsetTop; 
+    }
+
+    //for 100 we want -50 to 50
+    const xWalk = Math.round((x / width * walk) - (walk / 2));
+    const yWalk = Math.round((y / width * walk) - (walk / 2));
+
+    text.style.textShadow = `
+      ${xWalk}px ${yWalk}px 0 rgba(255, 0, 255, 0.5),
+      ${xWalk * -1}px ${yWalk}px 0 rgba(0, 255,  255, 0.5),
+      ${yWalk}px ${xWalk * -1}px 0 rgba(0, 255,  0, 0.5),
+      ${yWalk * -1}px ${xWalk}px 0 rgba(0, 0,  255, 0.5)
+    `;
+  }
+
+  hero.addEventListener('mousemove', shadow);
 </script>
 </body>
 </html>

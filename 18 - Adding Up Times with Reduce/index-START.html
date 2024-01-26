@@ -183,6 +183,29 @@
     </li>
   </ul>
 <script>
+
+//select those nodes
+//this will give a nodeList. So, we need to change it to arrayList
+const timeNodes = Array.from(document.querySelectorAll('[data-time]'));
+//to use map() function on timeNodes we need to change nodeList to ArrayList
+const seconds = timeNodes
+  .map(node => node.dataset.time)
+  .map(timeCode => {
+    const [mins, secs] = timeCode.split(':').map(parseFloat); //parseFloat converts a string to floating point number
+    return (mins * 60) + secs;
+    //console.log(mins, secs);
+  })
+  .reduce((total, vidSeconds) => total + vidSeconds);
+
+let secondsLeft = seconds;
+const hours = Math.floor(secondsLeft / 3600);
+secondsLeft = secondsLeft % 3600;
+
+const mins = Math.floor(secondsLeft / 60);
+secondsLeft = secondsLeft % 60;
+
+console.log(hours, mins, secondsLeft);
+
 </script>
 </body>
 </html>

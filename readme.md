@@ -91,11 +91,17 @@ JavaScript30 is a collection of 30 coding challenges designed to improve your un
 - **Project:** [Objects & Arrays - Referenc](./14%20-%20JavaScript%20References%20VS%20Copying)
 - **Description:** Learnt about Objects and Arrays - Reference VS Copy.
 
-### Day 13: LocalStorage
+### Day 15: LocalStorage
 
 - **Project:** [LocalStorage](./15%20-%20LocalStorage)
 - **Description:** Created a feature of adding items to the list which can be checked or unchecked. Data is stored in LocalStorage.
 - **Demo:** [Live Demo](https://vsala2.github.io/JavaScript30/15%20-%20LocalStorage/index-START.html)
+
+### Day 16: Text Shadow Effect
+
+- **Project:** [Text Shadow Effect](./16%20-%20Mouse%20Move%20Shadow)
+- **Description:** Mouse Move Text shadow effect.
+- **Demo:** [Live Demo](https://vsala2.github.io/JavaScript30/16%20-%20Mouse%20Move%20Shadow/index-START.html)
 
 
 ## Acknowledgments

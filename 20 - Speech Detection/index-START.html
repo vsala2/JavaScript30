@@ -11,7 +11,44 @@
   </div>
 
 <script>
+  //SpeechRecognition is a global variable that lives in the browser. i.e., on the top of window. webkitSpeechRecognition is for Chrome. 
   window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  //create an instance of SpeechRecognition
+  const recognition = new SpeechRecognition();
+  //in the recognition we need to set something called interimResults
+  recognition.interimResults = true; //this means as we speak it will populate the paragraph. 
+
+  //when we are speaking it will populate the same paragraph but when you stop and start again it will generate a new para.
+  let p = document.createElement('p');
+  const words = document.querySelector('.words');
+  words.appendChild(p);
+
+  recognition.addEventListener('result', e => {
+    //console.log(e.results); //e.results is a list. we need to convert it to array 
+    //e.results is nested list we need to get inside it to get the scripts
+    const transcript = Array.from(e.results)
+      .map(result => result[0])
+      .map(result => result.transcript)
+      .join('');
+
+      //writing it in the web page para
+      p.textContent =  transcript;
+      //overwrites the new words with old words
+      if(e.results[0].isFinal){
+        p = document.createElement('p');
+        words.appendChild(p);
+      }
+
+      if(transcript.includes('get the weather')) {
+        console.log('Getting the weather');
+      }
+    console.log(transcript);
+  });
+
+  //once we stop it will not start again if you dont start it again.
+  recognition.addEventListener('end', recognition.start);
+  recognition.start();
 
 
 </script>

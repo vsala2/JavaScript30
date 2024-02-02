@@ -28,6 +28,42 @@
 
   <script>
     // 👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀
+
+    const triggers = document.querySelectorAll('a');
+
+    const highlight = document.createElement('span');
+    highlight.classList.add('highlight');
+    document.body.append(highlight);
+
+    function highlightLink() {
+      //this is all a tag
+      const linkCoords = this.getBoundingClientRect();
+      //this.getBoundingClientRect() will return weight, height, x, y, top etc coords
+      console.log(linkCoords);
+
+      //before scrolll 
+      // highlight.style.width = `${linkCoords.width}px`;
+      // highlight.style.height = `${linkCoords.height}px`;
+      // //to position the highlight
+      // highlight.style.transform = `translate(${linkCoords.left}px, ${linkCoords.top}px)`;
+
+      //if we dont write this after scrolling it will not highlight properly
+      const coords = {
+        width: linkCoords.width,
+        height: linkCoords.height,
+        top: linkCoords.top + window.scrollY,
+        left: linkCoords.left + window.scrollX
+      };
+
+      highlight.style.width = `${coords.width}px`;
+      highlight.style.height = `${coords.height}px`;
+      //to position the highlight
+      highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+    }
+
+    triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
+
+
   </script>
 </body>
 </html>

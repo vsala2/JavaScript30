@@ -43,6 +43,26 @@
 
 <button></button>
 <script>
+  // Capturing means topmost element to parent element. Bubbling is after the target element has been received. Bubbles up from the target element to the top of the DOM tree
+  const divs = document.querySelectorAll('div');
+  const button = document.querySelector('button');
+
+  function logText(e) {
+    console.log(this.classList.value);
+    // e.stopPropagation(); // stop bubbling!
+    // console.log(this);
+  }
+
+  divs.forEach(div => div.addEventListener('click', logText, {
+    capture: true, //by default its false only, its true capturing will happen when capture down 
+    once: true //run only once. we need to refresh to click again.
+  }));
+
+  button.addEventListener('click', () => {
+    console.log('Click!!!');
+  }, {
+    once: true
+  });
 
 </script>
 </body>
